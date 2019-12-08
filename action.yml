@@ -1,0 +1,15 @@
+name: 'Create Release'
+description: 'Update new image to argocd'
+inputs:
+  image-tag:  # id of input
+    description: 'Release image tag'
+    required: true
+    default: ''
+outputs:
+  tag:
+    description: 'Release image tag'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.who-to-greet }}
