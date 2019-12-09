@@ -1,23 +1,13 @@
-# Hello world docker action
+# Update release to argocd action
 
-This action prints "Hello World" to the log or "Hello" + the name of a person to greet. To learn how this action was built, see "[Creating a Docker container action](https://help.github.com/en/articles/creating-a-docker-container-action)" in the GitHub Help documentation.
-
-## Inputs
-
-### `who-to-greet`
-
-**Required** The name of the person to greet. Default `"World"`.
-
-## Outputs
-
-### `time`
-
-The time we greeted you.
+This action will use tag from checkout/release and update k8s deployment to use new image tag. Update process will be handle by kustomize
 
 ## Example usage
 
 ```yaml
-uses: actions/hello-world-docker-action@master
-with:
-  who-to-greet: 'Mona the Octocat'
+uses: fadzril/update-argocd@v1
+env:
+  APP_NAME: app
+  IMAGE_TAG: f35334d
+  REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
 ```
