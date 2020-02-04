@@ -22,9 +22,12 @@ echo "⚡️ Checkout branch deploy/$APP_PATH"
 git checkout -b deploy/$APP_PATH
 
 curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh" | bash
+chmod +x ./kustomize
+cp ./kustomize /usr/local/bin/kustomize
 echo "⚡️ Validating kustomize: $(which kustomize)"
+
 # Update image tag using kustomize
-kustomize edit set image ${APP_NAME}=${IMAGE_PATH}
+./kustomize edit set image ${APP_NAME}=${IMAGE_PATH}
 
 # Now we setup default config for committer
 # So we can perform a commit
