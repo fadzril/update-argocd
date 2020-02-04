@@ -18,8 +18,8 @@ git clone --depth 1 --branch "master" $REMOTE_REPO repo
 
 cd repo
 
-echo "⚡️ Checkout branch deploy/$DEPLOY_PATH"
-git checkout -b deploy/$DEPLOY_PATH
+echo "⚡️ Checkout branch deploy/$APP_PATH"
+git checkout -b deploy/$APP_PATH
 
 # Update image tag using kustomize
 kustomize edit set image ${APP_NAME}=${IMAGE_PATH}
@@ -32,11 +32,11 @@ git config user.email "$GITHUB_EMAIL"
 git add .
 
 # That will create a nice commit message
-git commit -m "Deploy kfit-dev/@$APP_NAME to $DEPLOY_PATH with ref $IMAGE_TAG"
+git commit -m "Deploy kfit-dev/@$APP_NAME to $APP_PATH with ref $IMAGE_TAG"
 echo "⚡️ Changes for image $IMAGE_PATH ready to go. Pushing to Github..."
 
 # Push this update to our master
-git push origin deploy/$DEPLOY_PATH
+git push origin deploy/$APP_PATH
 
 # Now everything is ready.
 # Lets just be a good citizen and so some clean-up after ourselves
