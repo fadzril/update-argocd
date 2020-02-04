@@ -19,7 +19,7 @@ git clone --depth 1 --branch "master" $REMOTE_REPO repo
 cd repo
 
 echo "⚡️ Checkout branch deploy/$APP_PATH"
-git checkout -b deploy/$APP_PATH
+git checkout deploy/$APP_PATH
 
 curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh" | bash
 chmod +x ./kustomize
