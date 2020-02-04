@@ -1,14 +1,14 @@
 # Container image that runs your code
-FROM ubuntu:18.04
+FROM ubuntu:latest
+
 LABEL author="Fadzril"
-LABEL version="1.0.0"
+LABEL version="1.0.2"
 
 # Install dependencies
 RUN apt-get update && \
     apt-get install --no-install-recommends -y \
-        build-essential \
-        ca-certificates \
-        git-all
+    build-essential \
+    git-all
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
