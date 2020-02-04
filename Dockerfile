@@ -4,6 +4,8 @@ FROM ubuntu:latest
 LABEL author="Fadzril"
 LABEL version="1.0.2"
 
+ARG DEBIAN_FRONTEND=noninteractive
+
 # Install dependencies
 RUN apt-get update && \
     apt-get install --no-install-recommends -y \
