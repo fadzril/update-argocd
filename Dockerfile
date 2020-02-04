@@ -1,5 +1,5 @@
 # Container image that runs your code
-FROM alpine:3.10
+FROM ubuntu:18.04
 LABEL author="Fadzril"
 LABEL version="1.0.0"
 
