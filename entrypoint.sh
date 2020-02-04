@@ -14,7 +14,7 @@ GITHUB_USER="dev+ci@kfit.com"
 # We need to clone the repo here.
 # Remember, our Docker container is practically pristine at this point
 echo "⚡️ Clone $REMOTE_REPO master..."
-git clone --depth 1 --branch "master" $REMOTE_REPO repo
+git clone $REMOTE_REPO repo
 
 cd repo
 
