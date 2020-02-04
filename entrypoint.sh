@@ -21,6 +21,7 @@ cd repo
 echo "⚡️ Checkout branch deploy/$APP_PATH"
 git checkout -b deploy/$APP_PATH
 
+curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh" | bash
 echo "⚡️ Validating kustomize: $(which kustomize)"
 # Update image tag using kustomize
 kustomize edit set image ${APP_NAME}=${IMAGE_PATH}
