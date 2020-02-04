@@ -2,14 +2,13 @@
 FROM ubuntu:latest
 
 LABEL author="Fadzril"
-LABEL version="1.0.2"
+LABEL version="1.0.4"
 
 ARG DEBIAN_FRONTEND=noninteractive
 
 # Install dependencies
 RUN apt-get update && \
     apt-get install --no-install-recommends -y \
-    build-essential \
     git-all
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
