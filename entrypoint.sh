@@ -27,7 +27,7 @@ cp ./kustomize /usr/local/bin/kustomize
 echo "⚡️ Validating kustomize: $(which kustomize)"
 
 # Update image tag using kustomize
-cd deploy/$APP_PATH
+cd $APP_PATH
 ./kustomize edit set image ${APP_NAME}=${IMAGE_PATH}
 
 # Now we setup default config for committer
