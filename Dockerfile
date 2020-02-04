@@ -2,7 +2,7 @@
 FROM ubuntu:latest
 
 LABEL author="Fadzril"
-LABEL version="1.2.3"
+LABEL version="1.2.4"
 
 ARG DEBIAN_FRONTEND=noninteractive
 

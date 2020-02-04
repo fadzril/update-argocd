@@ -24,7 +24,7 @@ cd $APP_PATH
 
 curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh" | bash
 chmod +x ./kustomize
-cp ./kustomize /usr/local/bin/kustomize
+mv ./kustomize /usr/local/bin/kustomize
 echo "⚡️ Validating kustomize: $(which kustomize)"
 
 # Update image tag using kustomize
@@ -38,7 +38,7 @@ git config user.email "$GITHUB_EMAIL"
 git add .
 
 # That will create a nice commit message
-git commit -m "Deploy kfit-dev/@$APP_NAME to $APP_PATH with ref $IMAGE_TAG"
+git commit -m "Deploy kfit-dev/$APP_NAME to $APP_PATH with ref $IMAGE_TAG"
 echo "⚡️ Changes for image $IMAGE_PATH ready to go. Pushing to Github..."
 
 # Push this update to our master
