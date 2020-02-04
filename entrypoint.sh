@@ -20,6 +20,8 @@ echo "⚡️ Clone $REMOTE_REPO master..."
 
 cd repo
 
+git checkout -b deploy/$DEPLOY_PATH
+
 # Update image tag using kustomize
 kustomize edit set image ${APP_NAME}=${IMAGE_PATH}
 
@@ -35,7 +37,7 @@ git commit -m "Deploy kfit-dev/@$APP_NAME to $DEPLOY_PATH"
 echo "⚡️ Changes for image $IMAGE_PATH ready to go. Pushing to Github..."
 
 # Push this update to our master
-git push origin master
+git push origin deploy/$DEPLOY_PATH
 
 # Now everything is ready.
 # Lets just be a good citizen and so some clean-up after ourselves
